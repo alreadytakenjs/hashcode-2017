@@ -4,10 +4,11 @@
 *  (__ __)//
 */
 // 🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕🍕
-var request = require("request"),
-  config = require('./pizzaModules/pizzaConfig.js');
+let request = require("request"),
+  config = require('./pizzaModules/pizzaConfig.js'),
+  dataObject = require('./pizzaModules/pizzaDataObject.js');
 
-
+console.log(dataObject);
 
 
 
