@@ -38,3 +38,6 @@ jspm_packages
 
 #TARACE vs code
 .vscode
+
+#input files
+in/*.in
