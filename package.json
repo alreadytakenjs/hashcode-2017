@@ -10,7 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/alreadytakenjs/hashcode-2017.git"
   },
-  "author": ["Benjamin Auzanneau", "Fabien Thomas", "Denis Souron", "Pierre Gaborieau"],
+  "author": "alreadytakenjs",
+  "contributors":   ["Benjamin Auzanneau", "Fabien Thomas", "Denis Souron", "Pierre Gaborieau"],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/alreadytakenjs/hashcode-2017/issues"
