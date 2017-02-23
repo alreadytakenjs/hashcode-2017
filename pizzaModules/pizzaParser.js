@@ -14,7 +14,7 @@ var data = '';
 
 pizzaDataObject = require('./pizzaDataObject.js');
 dataObject = pizzaDataObject.dataObject;
-var filename = 'me_at_the_zoo.in';
+var filename = 'videos_worth_spreading.in';
 
 //lecture fichier
 var lines = require('fs').readFileSync('in/' + filename, 'utf-8').split('\n');//.filter(Boolean);
@@ -66,7 +66,5 @@ for (var k=0; k < dataObject.r; k++) {
 
     compteur_ligne++;
 }
-
-dataObject.s = dataObject.s.map((a) => a > dataObject.x ? -1 : a);
 
 module.exports.data = dataObject;

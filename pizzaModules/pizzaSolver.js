@@ -1,5 +1,8 @@
 var data = require('./pizzaParser.js').data;
 
+//tri par nombre de requete décroissant
+data.aR = data.aR.sort((a,b) => a.n < b.n);
+
 var cacheResult = [];
 
 for(var l=0;l<data.c;++l) {
@@ -7,12 +10,12 @@ for(var l=0;l<data.c;++l) {
     var i = 0;
     var cacheVideo = [];
     
-    while(sumResult < data.x && i < data.v) {
-        if(sumResult + data.s[i]<= data.x) {
+    while(sumResult < data.x && i < data.r) {
+        if(sumResult + data.s[data.aR[i].v]<= data.x && cacheVideo.indexOf(data.aR[i].v) === -1) {
             // taille totale des vidéos
-            sumResult += data.s[i];
+            sumResult += data.s[data.aR[i].v];
             // numéro du cache server
-            cacheVideo.push(i);
+            cacheVideo.push(data.aR[i].v);
             
         }
         ++i;
@@ -41,7 +44,7 @@ cacheResult.forEach(function(cache, index){
 console.log(output);
 
 var fs = require('fs');
-fs.writeFile("/tmp/test", "Hey there!", function(err) {
+fs.writeFile("./out/videos_worth_spreading.out", output, function(err) {
     if(err) {
         return console.log(err);
     }
