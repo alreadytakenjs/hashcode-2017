@@ -1,0 +1,22 @@
+{
+  "name": "hashcode-2017",
+  "version": "0.0.1",
+  "description": "Clairement, on vient pour les pizzas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alreadytakenjs/hashcode-2017.git"
+  },
+  "author": ["Denis Souron", "Fabien Thomas", "Paul Bonnet"],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alreadytakenjs/hashcode-2017/issues"
+  },
+  "homepage": "https://github.com/alreadytakenjs/hashcode-2017#readme",
+  "dependencies": {
+    "request": "^2.*"
+  }
+}
