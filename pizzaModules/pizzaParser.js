@@ -15,11 +15,24 @@ var data = '';
 
 var filename = 'me_at_the_zoo.in';
 
+//parametres chargés
+var v, e, r, c, x;
+
 var lineReader = readline.createInterface({
     input: fs.createReadStream('in/'+filename)
 });
 
+var compteur_lignes=0;
 lineReader.on('line', function (line) {
+    if (compteur_lignes == 0) {
+        var premiere_ligne = line.split(' ');
+        v = premiere_ligne[0];
+        e = premiere_ligne[1];
+        r = premiere_ligne[2];
+        c = premiere_ligne[3];
+        x = premiere_ligne[4];
+        compteur_lignes++;
+    }
     data += line;
     console.log('Ligne trouvée : ' + line);
     //console.log('Line from file:', line);
