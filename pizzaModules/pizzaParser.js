@@ -14,7 +14,7 @@ var data = '';
 
 pizzaDataObject = require('./pizzaDataObject.js');
 dataObject = pizzaDataObject.dataObject;
-var filename = 'videos_worth_spreading.in';
+var filename = 'kittens.in';
 
 //lecture fichier
 var lines = require('fs').readFileSync('in/' + filename, 'utf-8').split('\n');//.filter(Boolean);
