@@ -10,6 +10,7 @@ let request = require("request"),
 
 //console.log(dataObject);
 console.log(dataObject.createEndpointObject());
+console.log(dataObject.createARObject());
 
 
 

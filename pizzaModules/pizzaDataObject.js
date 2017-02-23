@@ -7,6 +7,12 @@ let endpointModel = {
     aL: []  // de taille k
 }
 
+let arObjectModel = {
+    v:0,
+    e:0,
+    n:0
+}
+
 module.exports.dataObject = {
     v: 0,
     e: 0,
@@ -15,12 +21,13 @@ module.exports.dataObject = {
     x: 0,
     s: [],
     aE: [],
-    aRv: [],
-    aRe: [],
-    aRn: []
+    aR:[]
 };
 
 module.exports.createEndpointObject = function(){
     return config.utils.clone(endpointModel);
-}
+};
 
+module.exports.createARObject = function(){
+    return config.utils.clone(arObjectModel);
+}
