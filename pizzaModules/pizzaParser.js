@@ -10,39 +10,31 @@
 // 500 requests for video 4 coming from endpoint 0.
 // 1000 requests for video 1 coming from endpoint 0.
 var fs = require('fs');
-var readline = require('readline');
 var data = '';
 
-dataObject = require('./pizzaModules/pizzaDataObject.js');
+dataObject = require('./pizzaDataObject.js');
 var filename = 'me_at_the_zoo.in';
 
-var lineReader = readline.createInterface({
-    input: fs.createReadStream('in/'+filename)
-});
+//lecture fichier
+var lines = require('fs').readFileSync('in/' + filename, 'utf-8').split('\n').filter(Boolean);
+var premiere_ligne = lines[0].split(' ');
+dataObject.v = premiere_ligne[0];
+dataObject.e = premiere_ligne[1];
+dataObject.r = premiere_ligne[2];
+dataObject.c = premiere_ligne[3];
+dataObject.x = premiere_ligne[4];
+//array of video sizes
+dataObject.s = lines[0].split(' ');
 
-var compteur_lignes=0;
-lineReader.on('line', function (line) {
-    if (compteur_lignes == 0) {
-        var line_table = line.split(' ');
-        dataObject.v = line_table[0];
-        dataObject.e = line_table[1];
-        dataObject.r = line_table[2];
-        dataObject.c = line_table[3];
-        dataObject.x = line_table[4];
-        compteur_lignes++;
-    } else if (compteur_lignes = 2) {
-        var line_table = line.split(' ');
-        s = line_table;
-    }
-    data += line;
-    console.log('Ligne trouvée : ' + line);
-    //console.log('Line from file:', line);
-});
 
-lineReader.on('close', function () {
-    console.log('Fin de fichier');
-});
+var test = function() {
+    console.log('nb videos : ' + dataObject.v);
+    console.log('nb endpoints : ' + dataObject.e);
+    console.log('nb requests : ' + dataObject.r);
+    console.log('nb caches : ' + dataObject.c);
+    console.log('cache size : ' + dataObject.x);
 
-lineReader.on('error', function (err) {
-    console.log(err.stack);
-});
+    console.log('video sizes : ' + dataObject.s);
+};
+
+test();
