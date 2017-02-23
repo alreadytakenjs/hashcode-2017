@@ -13,10 +13,8 @@ var fs = require('fs');
 var readline = require('readline');
 var data = '';
 
+dataObject = require('./pizzaModules/pizzaDataObject.js');
 var filename = 'me_at_the_zoo.in';
-
-//parametres chargés
-var v, e, r, c, x;
 
 var lineReader = readline.createInterface({
     input: fs.createReadStream('in/'+filename)
@@ -25,13 +23,16 @@ var lineReader = readline.createInterface({
 var compteur_lignes=0;
 lineReader.on('line', function (line) {
     if (compteur_lignes == 0) {
-        var premiere_ligne = line.split(' ');
-        v = premiere_ligne[0];
-        e = premiere_ligne[1];
-        r = premiere_ligne[2];
-        c = premiere_ligne[3];
-        x = premiere_ligne[4];
+        var line_table = line.split(' ');
+        dataObject.v = line_table[0];
+        dataObject.e = line_table[1];
+        dataObject.r = line_table[2];
+        dataObject.c = line_table[3];
+        dataObject.x = line_table[4];
         compteur_lignes++;
+    } else if (compteur_lignes = 2) {
+        var line_table = line.split(' ');
+        s = line_table;
     }
     data += line;
     console.log('Ligne trouvée : ' + line);
