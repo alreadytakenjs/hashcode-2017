@@ -12,29 +12,64 @@
 var fs = require('fs');
 var data = '';
 
-dataObject = require('./pizzaDataObject.js');
+pizzaDataObject = require('./pizzaDataObject.js');
+dataObject = pizzaDataObject.dataObject;
 var filename = 'me_at_the_zoo.in';
 
 //lecture fichier
-var lines = require('fs').readFileSync('in/' + filename, 'utf-8').split('\n').filter(Boolean);
+var lines = require('fs').readFileSync('in/' + filename, 'utf-8').split('\n');//.filter(Boolean);
 var premiere_ligne = lines[0].split(' ');
-dataObject.v = premiere_ligne[0];
-dataObject.e = premiere_ligne[1];
-dataObject.r = premiere_ligne[2];
-dataObject.c = premiere_ligne[3];
-dataObject.x = premiere_ligne[4];
-//array of video sizes
-dataObject.s = lines[0].split(' ');
+//first line
+dataObject.v = parseInt(premiere_ligne[0]);
+dataObject.e = parseInt(premiere_ligne[1]);
+dataObject.r = parseInt(premiere_ligne[2]);
+dataObject.c = parseInt(premiere_ligne[3]);
+dataObject.x = parseInt(premiere_ligne[4]);
+//second line : array of video sizes
+dataObject.s = lines[1].split(' ').map((a) => parseInt(a));
+//third line and after : endpoints
+var compteur_ligne = 2;
+for (var i = 0; i < dataObject.e; i++) {
+    //l and k
+    var ligne_a = lines[compteur_ligne].split(' ');
+    var endpoint = pizzaDataObject.createEndpointObject();
+    endpoint.l = parseInt(ligne_a[0]);
+    endpoint.k = parseInt(ligne_a[1]);
+    dataObject.aE.push(endpoint);
 
+    compteur_ligne++;
+    for (var j = 0; j < endpoint.k; j++) {
+        //c and ac
+        console.log(lines[compteur_ligne])
+        ligne_a = lines[compteur_ligne].split(' ');
+        //cache
+        endpoint.aC.push(parseInt(ligne_a[0]));
+        //latence pour ce cache
+        endpoint.aL.push(parseInt(ligne_a[1]));
+
+        compteur_ligne++;
+    }
+}
+//requetes
+for (var k=0; k < dataObject.r; k++) {
+    ligne_a = lines[compteur_ligne].split(' ');
+
+    var requete = pizzaDataObject.createARObject();
+    //ID of requested video
+    requete.v = parseInt(ligne_a[0]);
+    //ID of endpoint
+    requete.e = parseInt(ligne_a[1]);
+    //Number of requests
+    requete.n = parseInt(ligne_a[2]);
+
+    dataObject.aR.push(requete);
+
+    compteur_ligne++;
+}
 
 var test = function() {
-    console.log('nb videos : ' + dataObject.v);
-    console.log('nb endpoints : ' + dataObject.e);
-    console.log('nb requests : ' + dataObject.r);
-    console.log('nb caches : ' + dataObject.c);
-    console.log('cache size : ' + dataObject.x);
-
-    console.log('video sizes : ' + dataObject.s);
+    console.log(dataObject);
+    
 };
 
 test();
