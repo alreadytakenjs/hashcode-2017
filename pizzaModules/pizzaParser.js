@@ -67,9 +67,6 @@ for (var k=0; k < dataObject.r; k++) {
     compteur_ligne++;
 }
 
-var test = function() {
-    console.log(dataObject);
-    
-};
+dataObject.s = dataObject.s.map((a) => a > dataObject.x ? -1 : a);
 
-test();
+module.exports.data = dataObject;
