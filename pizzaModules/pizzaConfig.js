@@ -1,12 +1,13 @@
 // Config du hashcode
 module.exports.settings = {
-  login: 'test',
-  mdp: 'test',
-  apiUrl: 'http://coucou.tuveux.fr',
-  battleMode: false,
-  botNumber: 1
+  login: 'admin',
+  mdp: 'pwd',
+  apiUrl: 'http://api.url.com'
 };
 
+module.exports.params = {
+  debug : 1
+};
 
 module.exports.utils = {
   clone: function clone(obj) {
@@ -17,4 +18,4 @@ module.exports.utils = {
     }
     return copy;
   }
-}
+};
