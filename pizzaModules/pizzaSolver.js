@@ -13,16 +13,30 @@ for(var l=0;l<data.c;++l) {
             sumResult += data.s[i];
             // numéro du cache server
             cacheVideo.push(i);
-            ++i;
+            
         }
+        ++i;
     }
 
-    cashResult.push(cacheVideo);
+    cacheResult.push(cacheVideo);
 
 }
 
-console.log(cacheResult.length);
-for(var i =0;i<cacheResult.length;++i){
-    console.log(i);
-    console.log(cacheResult[i]);
-}
+var output = cacheResult.filter((a) => a.length).length;
+output += '\n';
+cacheResult.forEach(function(cache, index){
+    if(cache.length) {
+         output += index;
+         cache.forEach(function(video){
+            output += ' ' + video;
+         });
+         output += '\n';
+    }
+
+    
+   
+
+});
+
+console.log(output);
+

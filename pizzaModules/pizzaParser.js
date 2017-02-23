@@ -40,7 +40,7 @@ for (var i = 0; i < dataObject.e; i++) {
     compteur_ligne++;
     for (var j = 0; j < endpoint.k; j++) {
         //c and ac
-        console.log(lines[compteur_ligne])
+        // console.log(lines[compteur_ligne])
         ligne_a = lines[compteur_ligne].split(' ');
         //cache
         endpoint.aC.push(parseInt(ligne_a[0]));
