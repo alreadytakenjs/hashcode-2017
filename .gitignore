@@ -41,3 +41,6 @@ jspm_packages
 
 #input files
 in/*.in
+
+#output files
+out/*.out
